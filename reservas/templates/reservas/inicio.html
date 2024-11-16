@@ -1,0 +1,20 @@
+
+{% extends 'reservas/layout.html' %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1>Bienvenido al Sistema de Alquiler de Canchas</h1>
+    <p>Gestiona tus reservas, consulta la disponibilidad de canchas y más.</p>
+    <div class="mt-4">
+        {% if user.is_authenticated %}
+            <p>Hola, {{ user.username }}. ¡Explora las funcionalidades disponibles!</p>
+            <a href="{% url 'listar_canchas' %}" class="btn btn-primary">Ver Canchas</a>
+            <a href="{% url 'listar_reservas' %}" class="btn btn-secondary">Mis Reservas</a>
+        {% else %}
+            <p>Para comenzar, por favor inicia sesión o regístrate.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Registrarse</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

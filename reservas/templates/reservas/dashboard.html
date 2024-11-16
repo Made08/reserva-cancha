@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <h3>Reservas de Canchas</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cancha</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.cancha.nombre }}</td>
+                <td>{{ reserva.fecha }}</td>
+                <td>{{ reserva.usuario.username }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay reservas registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
+</body>
+</html>

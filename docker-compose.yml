@@ -1,0 +1,51 @@
+services:
+  db:
+    container_name: reserva-futbol-db
+    image: postgres:alpine3.20
+    networks:
+      - red-sistema
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: reserva_futbol
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres-initdb:/docker-entrypoint-initdb.d
+
+  adminer:
+    container_name: adminer-db
+    image: adminer
+    networks:
+      - red-sistema
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+#  app:
+#    container_name: futbol-app
+#    build:
+#      context: .
+#      dockerfile: dockerfile-app
+#    networks:
+#      - red-sistema
+#    ports:
+#      - 8001:8000
+#    depends_on:
+#      - db
+#      - adminer
+
+networks:
+  red-sistema:
+    name: red-sistema-reserva-canchas
+    driver: bridge

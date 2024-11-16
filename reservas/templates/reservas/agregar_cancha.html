@@ -1,0 +1,13 @@
+
+{% extends 'reservas/layout.html' %}
+{% block content %}
+<h2>Agregar Cancha</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
+    <label for="ubicacion">Ubicación:</label>
+    <input type="text" id="ubicacion" name="ubicacion" required><br>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

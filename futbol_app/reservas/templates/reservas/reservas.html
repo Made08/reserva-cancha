@@ -1,0 +1,10 @@
+
+{% extends 'reservas/layout.html' %}
+{% block content %}
+<h2>Mis Reservas</h2>
+<ul>
+    {% for reserva in reservas %}
+        <li>{{ reserva.cancha.nombre }} - {{ reserva.fecha }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

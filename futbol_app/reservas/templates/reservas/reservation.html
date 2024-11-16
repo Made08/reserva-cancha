@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Cancha</title>
+</head>
+<body>
+    <h2>Reservar Cancha</h2>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Aquí puedes agregar campos adicionales para los datos de reserva -->
+        <button type="submit">Reservar</button>
+    </form>
+    <p><a href="{% url 'dashboard' %}">Ir al Dashboard</a></p>
+</body>
+</html>
+

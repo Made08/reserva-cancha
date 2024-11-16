@@ -7,6 +7,20 @@ Este proyecto es una aplicaci√≥n web para gestionar el alquiler de canchas de f√
 - Python 3.8 o superior
 - PostgreSQL
 - Virtualenv o similar
+- Docker
+
+## Instalaci√≥n Infra DB
+1. Instanciar los contenedores de base de datos y visor dataminer
+
+    ```bash
+    docker compose up -d
+    ```
+
+1.1 Bajar infra
+
+    ```bash
+    docker compose down
+    ```
 
 ## Instalaci√≥n
 
@@ -20,8 +34,8 @@ Este proyecto es una aplicaci√≥n web para gestionar el alquiler de canchas de f√
 2. Crear y activar un entorno virtual:
 
     ```bash
-    python -m venv env
-    source env/bin/activate  # En Windows usa `env\Scripts\activate`
+    python3 -m venv venv
+    source venv/bin/activate  # En Windows usa `env\Scripts\activate`
     ```
 
 3. Instalar las dependencias:
@@ -38,14 +52,15 @@ Este proyecto es una aplicaci√≥n web para gestionar el alquiler de canchas de f√
 5. Aplicar las migraciones:
 
     ```bash
-    python manage.py makemigrations
-    python manage.py migrate
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    python3 manage.py migrate --fake reservas
     ```
 
 6. Iniciar el servidor:
 
     ```bash
-    python manage.py runserver
+    python3 manage.py runserver
     ```
 
 ## Funcionalidades

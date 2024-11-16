@@ -9,6 +9,15 @@ Este proyecto es una aplicación web para gestionar el alquiler de canchas de f�
 - Virtualenv o similar
 - Docker
 
+## Descarga de Repositorio
+
+1. Clonar el proyecto y navegar al directorio principal:
+
+    ```bash
+    git clone git@github.com:Made08/reserva-cancha.git
+    cd reserva-cancha
+    ```
+
 ## Instalación Infra DB
 1. Instanciar los contenedores de base de datos y visor dataminer
 
@@ -16,40 +25,33 @@ Este proyecto es una aplicación web para gestionar el alquiler de canchas de f�
     docker compose up -d
     ```
 
-1.1 Bajar infra
+### Nota: Bajar infra
 
     ```bash
     docker compose down
     ```
 
-## Instalación
+## Habilitar Entorno Python
 
-1. Clonar el proyecto y navegar al directorio principal:
-
-    ```bash
-    git clone <ruta-del-repo>
-    cd Aquilar_canchas
-    ```
-
-2. Crear y activar un entorno virtual:
+1. Crear y activar un entorno virtual:
 
     ```bash
     python3 -m venv venv
     source venv/bin/activate  # En Windows usa `env\Scripts\activate`
     ```
 
-3. Instalar las dependencias:
+2. Instalar las dependencias:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Configurar la base de datos:
+3. Configurar la base de datos:
 
-    - Crear una base de datos PostgreSQL con el nombre `reserva`.
+    - Crear una base de datos PostgreSQL con el nombre `reserva` <-- Ya creada si se ejecuto docker compose
     - Configurar usuario y contraseña en el archivo `futbol_app/settings.py`.
 
-5. Aplicar las migraciones:
+4. Aplicar las migraciones:
 
     ```bash
     python3 manage.py makemigrations
@@ -57,11 +59,16 @@ Este proyecto es una aplicación web para gestionar el alquiler de canchas de f�
     python3 manage.py migrate --fake reservas
     ```
 
-6. Iniciar el servidor:
+5. Iniciar el servidor:
 
     ```bash
     python3 manage.py runserver
     ```
+
+6. Entrar a la Aplicacion
+
+    Aplicacion:   http://localhost:8000/
+    Dataminer:    http://localhost:8080
 
 ## Funcionalidades
 

@@ -18,8 +18,8 @@ services:
       POSTGRES_DB: reserva_futbol
     ports:
       - 5432:5432
-    volumes:
-      - ./postgres-initdb:/docker-entrypoint-initdb.d
+    #volumes:
+    #  - ./postgres-initdb:/docker-entrypoint-initdb.d
 
   adminer:
     container_name: adminer-db

@@ -56,7 +56,6 @@ Este proyecto es una aplicaci√≥n web para gestionar el alquiler de canchas de f√
     ```bash
     python3 manage.py makemigrations
     python3 manage.py migrate
-    python3 manage.py migrate --fake reservas
     ```
 
 5. Iniciar el servidor:
